@@ -18,7 +18,7 @@ public class AuthorList {
         try {
             conn = Database.getConnection();
             stm = conn.createStatement();
-            rs = stm.executeQuery("select * from author;");
+            rs = stm.executeQuery("select * from author order by fio");
             while (rs.next()){
                 Author author = new Author();
                 author.setName(rs.getString("fio"));
