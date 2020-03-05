@@ -136,3 +136,10 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus {
 	top:1px;
 }
 
+.book_list{
+    float:left;
+}
+
+.book_list h3{
+    text-align: center;
+}

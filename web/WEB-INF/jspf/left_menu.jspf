@@ -4,7 +4,7 @@
 <div class="sidebar1">
     <h4>Жанры:</h4>
 
-    <ul>
+    <ul class="nav">
         <jsp:useBean id="genreList" class="beans.GenreList" scope="application"/>
 
         <% for (Genre genre: genreList.getGenreList()){
