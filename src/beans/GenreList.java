@@ -1,4 +1,4 @@
-package beens;
+package beans;
 
 import dataBase.Database;
 import java.sql.Connection;

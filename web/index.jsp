@@ -40,8 +40,8 @@
 </html>
 
 
-<%--<%@ page import="beens.AuthorList" %>--%>
-<%--<%@ page import="beens.Author" %>--%>
+<%--<%@ page import="beans.AuthorList" %>--%>
+<%--<%@ page import="beans.Author" %>--%>
 <%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
 <%--<html>--%>
 <%--<head>--%>

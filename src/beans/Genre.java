@@ -1,4 +1,4 @@
-package beens;
+package beans;
 
 public class Genre {
     

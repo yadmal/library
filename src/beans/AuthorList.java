@@ -1,4 +1,4 @@
-package beens;
+package beans;
 
 import dataBase.Database;
 
@@ -22,6 +22,7 @@ public class AuthorList {
             while (rs.next()){
                 Author author = new Author();
                 author.setName(rs.getString("fio"));
+                author.setId(rs.getLong("id"));
                 authorList.add(author);
             }
         } catch (SQLException e) {

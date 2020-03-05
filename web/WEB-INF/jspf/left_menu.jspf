@@ -1,11 +1,11 @@
-<%@ page import="beens.Genre" %>
+<%@ page import="beans.Genre" %>
 <%@page pageEncoding="UTF-8" %>
 
 <div class="sidebar1">
     <h4>Жанры:</h4>
 
     <ul>
-        <jsp:useBean id="genreList" class="beens.GenreList" scope="application"/>
+        <jsp:useBean id="genreList" class="beans.GenreList" scope="application"/>
 
         <% for (Genre genre: genreList.getGenreList()){
         %>

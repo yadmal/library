@@ -1,10 +1,11 @@
-package beens;
+package beans;
 
 import java.awt.Image;
 import java.io.Serializable;
 import java.util.Date;
 
 public class Book implements Serializable {
+    private long id;
     private String name;
     private byte[] content;
     private int pageCount;
@@ -14,6 +15,30 @@ public class Book implements Serializable {
     private Date publishDate;
     private String publisher;
     private Image image;
+
+    public Book() {
+    }
+
+    public Book(long id, String name, byte[] content, int pageCount, String isbn, String genre, String author, Date publishDate, String publisher, Image image) {
+        this.id = id;
+        this.name = name;
+        this.content = content;
+        this.pageCount = pageCount;
+        this.isbn = isbn;
+        this.genre = genre;
+        this.author = author;
+        this.publishDate = publishDate;
+        this.publisher = publisher;
+        this.image = image;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
