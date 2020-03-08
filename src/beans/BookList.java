@@ -35,7 +35,7 @@ public class BookList {
                 book.setPageCount(rs.getInt("page_count"));
                 book.setPublishDate(rs.getDate("publish_year"));
                 book.setPublisher(rs.getString("publisher"));
-                book.setImage(new ImageIcon(rs.getBytes("image")).getImage());
+                book.setImage(rs.getBytes("image"));
                 bookList.add(book);
             }
 
