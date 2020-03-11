@@ -7,25 +7,31 @@
     <ul class="nav">
         <jsp:useBean id="genreList" class="beans.GenreList" scope="application"/>
 
-        <% long selectedGenreId = 0L;
-        if(request.getParameter("genre_id") != null){
-            selectedGenreId = Long.valueOf(request.getParameter("genre_id"));
-        } else if(session.getAttribute("genre_id") != null){
-            selectedGenreId = Long.valueOf(session.getAttribute("genre_id").toString());
-        }
+        <%
+            session.setAttribute("letter", null);
+            long selectedGenreId = 0L;
+            if (request.getParameter("genre_id") != null) {
+                selectedGenreId = Long.valueOf(request.getParameter("genre_id"));
+            } else if (session.getAttribute("genre_id") != null) {
+                selectedGenreId = Long.valueOf(session.getAttribute("genre_id").toString());
+            }
 
-        session.setAttribute("genre_id", selectedGenreId);
+            session.setAttribute("genre_id", selectedGenreId);
         %>
 
         <li><a href="books.jsp?genre_id=0">Все книги</a></li>
 
-        <% for (Genre genre: genreList.getGenreList()){
-            if(selectedGenreId != 0 && selectedGenreId == genre.getId()){
+        <% for (Genre genre : genreList.getGenreList()) {
+            if (selectedGenreId != 0 && selectedGenreId == genre.getId()) {
         %>
-        <li><a style="color:red;" href="books.jsp?genre_id=<%=genre.getId()%>"><%=genre.getName()%></a></li>
+        <li><a style="color:red;" href="books.jsp?genre_id=<%=genre.getId()%>"><%=genre.getName()%>
+        </a></li>
         <%} else {%>
-        <li><a href="books.jsp?genre_id=<%=genre.getId()%>"><%=genre.getName()%></a></li>
-        <%}
-        }%>
+        <li><a href="books.jsp?genre_id=<%=genre.getId()%>"><%=genre.getName()%>
+        </a></li>
+        <%
+                }
+            }
+        %>
     </ul>
 </div>
