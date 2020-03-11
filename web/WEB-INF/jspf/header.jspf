@@ -18,8 +18,8 @@
             <h3>Онлайн библиотека проекта javabegin.ru</h3>
         </div>
         <div class="search_form">
-            <form name="search_form" method="POST">
-                <input type="text" name="search_String" value="" size="110" />
+            <form name="search_form" method="GET" action="books.jsp">
+                <input type="text" name="search_string" value="" size="110" />
                 <input class="search_button" type="submit" value="Поиск" name="search_button" />
                 <select name="search_option">
                     <option>Название</option>

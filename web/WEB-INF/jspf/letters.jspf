@@ -1,0 +1,9 @@
+<%@page pageEncoding="UTF-8" %>
+
+<div class="letters">
+    <jsp:useBean id="letterList" class="beans.LetterList" scope="application"/>
+    <% char[] letters = letterList.getEnglishLetters();
+        for (int i = 0; i < letters.length; i++) {%>
+    <a href="books.jsp?letter=<%=letters[i]%>"><%=letters[i]%></a>
+    <%}%>
+</div>
