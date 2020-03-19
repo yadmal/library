@@ -7,7 +7,7 @@
 </head>
 <body>
     <%
-    request.setCharacterEncoding("UTF-8");
+//    request.setCharacterEncoding("UTF-8");
 
     String searchString = "";
     if(request.getParameter("search_string") != null){
@@ -39,7 +39,7 @@
         </div>
         <div class="search_form">
             <form name="search_form" method="GET" action="books.jsp">
-                <input type="text" name="search_string" value="<%=session.getAttribute("search_string")%>" size="110"/>
+                <input type="text" name="search_string" value="<%=searchString%>" size="110"/>
                 <input class="search_button" type="submit" value="Поиск" name="search_button"/>
                 <select name="search_option">
                     <option>Название</option>

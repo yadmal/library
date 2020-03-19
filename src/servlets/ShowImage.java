@@ -37,7 +37,6 @@ public class ShowImage extends HttpServlet {
             Book book = list.get(index);
             response.setContentLength(book.getImage().length);
             out.write(book.getImage());
-            Logger.getLogger(ShowImage.class.getName()).log(Level.SEVERE, "WWWWWWWWWWWWWWWWWWWWW");
         } finally {
             out.close();
         }
