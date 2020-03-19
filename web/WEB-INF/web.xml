@@ -12,10 +12,32 @@
         <servlet-name>ShowImage</servlet-name>
         <servlet-class>servlets.ShowImage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PdfContent</servlet-name>
+        <servlet-class>servlets.PdfContent</servlet-class>
+    </servlet>
+    <listener>
+        <description>HttpSessionListener</description>
+        <listener-class>listeners.SessionListener</listener-class>
+    </listener>
+    <listener>
+        <description>ServletContextListener</description>
+        <listener-class>listeners.ContextListener</listener-class>
+    </listener>
     <servlet-mapping>
         <servlet-name>ShowImage</servlet-name>
         <url-pattern>/ShowImage</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PdfContent</servlet-name>
+        <url-pattern>/PdfContent</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
 
     <jsp-config>
         <jsp-property-group>

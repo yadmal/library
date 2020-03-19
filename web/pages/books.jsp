@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <%@include file="../WEB-INF/jspf/left_menu.jspf"%>
 
-<%request.setCharacterEncoding("UTF-8");%>
+<%--<%request.setCharacterEncoding("UTF-8");%>--%>
 
 <jsp:useBean id="bookList" class="beans.BookList" scope="page"/>
 
@@ -42,17 +42,17 @@
         %>
         <tr>
             <td style="width:400px;height: 100px;">
-                <p style="color:#378de5 ;font-weight: bold; font-size: 15px;"> <%=book.getName()%></p>
+                <p style="color:#378de5 ;font-weight: bold; font-size: 15px;"><a href="content.jsp?index=<%=list.indexOf(book)%>"><%=book.getName()%></a></p>
                 <br><strong>ISBN:</strong> <%=book.getIsbn()%>
                 <br><strong>Издательство:</strong> <%=book.getPublisher() %>
 
                 <br><strong>Количество страниц:</strong> <%=book.getPageCount() %>
                 <br><strong>Год издания:</strong> <%=book.getPublishDate() %>
                 <br><strong>Автор:</strong> <%=book.getAuthor() %>
-                <p style="margin:10px;"> <a href="#">Читать</a></p>
+                <p style="margin:10px;"> <a href="content.jsp?index=<%=list.indexOf(book)%>">Читать</a></p>
             </td>
             <td style="width:150px;height: 100px;">
-                <img src="<%=request.getContextPath()%>/ShowImage?index=<%=list.indexOf(book)%>" alt="Обложка" height="250" width="190">
+                <a href="content.jsp?index=<%=list.indexOf(book)%>"><img src="<%=request.getContextPath()%>/ShowImage?index=<%=list.indexOf(book)%>" alt="Обложка" height="250" width="190"></a>
             </td>
         </tr>
         <%}%>
