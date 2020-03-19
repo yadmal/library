@@ -1,7 +1,15 @@
 package beans;
 
+import dataBase.Database;
+
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Book implements Serializable {
     private long id;
@@ -15,21 +23,6 @@ public class Book implements Serializable {
     private String publisher;
     private byte[] image;
 
-    public Book() {
-    }
-
-    public Book(long id, String name, byte[] content, int pageCount, String isbn, String genre, String author, Date publishDate, String publisher, byte[] image) {
-        this.id = id;
-        this.name = name;
-        this.content = content;
-        this.pageCount = pageCount;
-        this.isbn = isbn;
-        this.genre = genre;
-        this.author = author;
-        this.publishDate = publishDate;
-        this.publisher = publisher;
-        this.image = image;
-    }
 
     public long getId() {
         return id;
@@ -109,5 +102,37 @@ public class Book implements Serializable {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public void fillPdfContent(){
+        Statement statement = null;
+        Connection connection = null;
+        ResultSet resultSet = null;
+
+        try {
+            connection = Database.getConnection();
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select content from book where id=" + this.getId());
+            while (resultSet.next()){
+                this.setContent(resultSet.getBytes("content"));
+            }
+            Logger.getLogger(Book.class.getName()).log(Level.WARNING, "WWWWWWWWWWWWWWWWWWWWW" + this.getContent());
+        } catch (SQLException e) {
+            Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                Logger.getLogger(Book.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
     }
 }
